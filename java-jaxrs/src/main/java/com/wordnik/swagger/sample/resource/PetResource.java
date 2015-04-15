@@ -41,7 +41,7 @@ public class PetResource {
   static PetData petData = new PetData();
 
   @GET
-  @Path("/{petId}")
+  @Path("/{petIdInjectParam}")
   @ApiOperation(value = "Find pet by ID",
     notes = "Returns a pet when ID < 10.  ID > 10 or nonintegers will simulate API error conditions",
     response = Pet.class,
@@ -51,9 +51,9 @@ public class PetResource {
       @ApiResponse(code = 404, message = "Pet not found") })
   public Response getPetById(
       @ApiParam(value = "ID of pet that needs to be fetched", allowableValues = "range[1,5]", required = true)
-      @PathParam("petId") Long petId)
+      @InjectParam PetParam param)
       throws NotFoundException {
-    Pet pet = petData.getPetbyId(petId);
+    Pet pet = petData.getPetbyId(param.getPetId());
     if (null != pet) {
       return Response.ok().entity(pet).build();
     } else {
