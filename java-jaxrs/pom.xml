@@ -1,16 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <parent>
-    <groupId>com.wordnik</groupId>
-    <artifactId>swagger-project</artifactId>
-    <version>1.5.1-M2</version>
-    <relativePath>../..</relativePath>
-  </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.wordnik</groupId>
   <artifactId>swagger-java-sample-app</artifactId>
   <packaging>war</packaging>
   <name>swagger-java-jaxrs-app</name>
-  <version>1.5.1-M2</version>
+  <version>1.5.0</version>
   <build>
     <sourceDirectory>src/main/java</sourceDirectory>
     <plugins>
@@ -72,6 +66,7 @@
           </execution>
         </executions>
       </plugin>
+        <!--
       <plugin>
         <groupId>com.googlecode.maven-download-plugin</groupId>
         <artifactId>download-maven-plugin</artifactId>
@@ -90,6 +85,7 @@
           </execution>
         </executions>
       </plugin>
+
       <plugin>
         <artifactId>maven-resources-plugin</artifactId>
         <version>2.6</version>
@@ -115,57 +111,43 @@
           </execution>
         </executions>
       </plugin>
+      -->
     </plugins>
   </build>
   <dependencies>
-    <dependency>
-      <groupId>com.wordnik</groupId>
-      <artifactId>swagger-jaxrs</artifactId>
-      <version>${project.parent.version}</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-classic</artifactId>
-      <version>${logback-version}</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-core</artifactId>
-      <version>${logback-version}</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.scalatest</groupId>
-      <artifactId>scalatest_2.10</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <scope>test</scope>
-    </dependency>
+      <dependency>
+          <groupId>com.wordnik</groupId>
+          <artifactId>swagger-jersey-jaxrs</artifactId>
+          <version>1.5.1-M2</version>
+      </dependency>
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>servlet-api</artifactId>
+      <version>${servlet-api-version}</version>
     </dependency>
     <dependency>
       <groupId>com.sun.jersey</groupId>
       <artifactId>jersey-core</artifactId>
+      <version>${jersey-version}</version>
     </dependency>
     <dependency>
       <groupId>com.sun.jersey</groupId>
       <artifactId>jersey-json</artifactId>
+        <version>${jersey-version}</version>
     </dependency>
     <dependency>
       <groupId>com.sun.jersey</groupId>
       <artifactId>jersey-servlet</artifactId>
+        <version>${jersey-version}</version>
     </dependency>
   </dependencies>
   <properties>
     <coverage.complexity.minimum>0</coverage.complexity.minimum>
     <coverage.line.minimum>0</coverage.line.minimum>
     <coverage.missed.classes>0</coverage.missed.classes>
+    <jersey-version>1.13</jersey-version>
+      <jetty-version>8.1.11.v20130520</jetty-version>
+      <servlet-api-version>2.5</servlet-api-version>
+
   </properties>
 </project>
